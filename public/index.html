@@ -1,53 +1,43 @@
-<!-- public/index.html -->
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>🎙️ Podcast Generator</title>
-    <!-- Include Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Kid's Fun Podcast Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Include Google Fonts for playful fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>🎙️ Podcast Generator</h1>
-        <textarea id="text-input" placeholder="Enter your podcast topic here..."></textarea>
+        <header>
+            <h1>Kid's Fun Podcast Generator</h1>
+            <!-- Add a playful image or logo -->
+            <img src="kids_logo.png" alt="Kids Podcast Logo" width="150">
+        </header>
+        <form id="podcast-form">
+            <label for="text-input">What should the podcast be about?</label>
+            <textarea id="text-input" placeholder="Enter a fun topic..."></textarea>
 
-        <!-- Settings Row for Duration and Number of Speakers -->
-        <div class="settings-row">
-            <div>
-                <label for="podcast-duration">Desired Duration (minutes):</label>
-                <input type="number" id="podcast-duration" name="podcast-duration" min="1" max="60" value="5">
-            </div>
-            <div>
-                <label for="num-speakers">Number of Speakers (2-6):</label>
-                <input type="number" id="num-speakers" name="num-speakers" min="2" max="6" value="4">
-            </div>
-        </div>
-        <small>(Duration is approximate and may vary slightly)</small>
+            <label for="podcast-duration">Desired podcast duration (minutes):</label>
+            <input type="number" id="podcast-duration" value="5" min="1" max="60">
 
-        <!-- Promotion Section -->
-        <div class="promo-section">
-            <label for="promo-input">Product or Service to Feature:</label>
-            <input type="text" id="promo-input" placeholder="Enter a product or service to feature...">
-        </div>
+            <label for="promo-input">Cool product or service to feature:</label>
+            <input type="text" id="promo-input" placeholder="Enter a cool product...">
 
-        <!-- Speaker Settings -->
-        <div id="speaker-settings">
-            <div id="speakers-container">
-                <!-- Speaker configurations will be dynamically added here -->
-            </div>
-        </div>
+            <label for="num-speakers">Number of characters:</label>
+            <input type="number" id="num-speakers" value="3" min="2" max="6">
 
-        <button id="generate-btn">Generate Podcast</button>
-        <div id="progress">
-            <!-- Progress messages will appear here -->
-        </div>
-        <div id="conversation">
-            <!-- Conversation lines will appear here -->
-        </div>
-        <p class="disclaimer">Note: The voices used in this podcast are AI-generated using OpenAI's Text-to-Speech API.</p>
+            <div id="speakers-container"></div>
+
+            <button type="button" id="generate-btn">Generate Podcast</button>
+        </form>
+        <div id="progress"></div>
+        <div id="conversation"></div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
