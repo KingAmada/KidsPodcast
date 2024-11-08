@@ -23,17 +23,17 @@ module.exports = async (req, res) => {
             if (speaker.personalityPrompt) {
                 return `${speaker.name}: ${speaker.personalityPrompt}`;
             } else {
-                return `${speaker.name}: No specific personality prompt.`;
+                return `${speaker.name}: A friendly and fun character suitable for kids.`;
             }
         }).join('\n');
 
         // Build the prompt with context from previous lines
         let prompt = `
-You are to generate a podcast conversation between the following people:
+You are to generate a fun and engaging podcast conversation suitable for kids between the following characters:
 
 ${speakerDescriptions}
 
-They are discussing the following topic:
+They are discussing the following topic in a way that is entertaining and easy for children to understand:
 
 "${topicText}"
 
@@ -43,29 +43,31 @@ An advertisement for the following product/service should be included at an appr
 
 Instructions:
 
-- Begin the podcast with an introduction where the speakers welcome the listeners and mention the topic they will be discussing.
-- At an appropriate point before the advertisement, the speakers should mention they are taking a short break.
-- The advertisement should be presented by a new speaker, "Ad Narrator", who is not part of the main discussion.
-- After the advertisement, the conversation should resume naturally.
-- Conclude the podcast with the speakers providing closing remarks and thanking the listeners.
+- Begin the podcast with an exciting introduction where the characters welcome the listeners and mention the topic they will be exploring.
+- Use simple language and make the conversation lively, colorful, and animated.
+- Include elements of humor, fun facts, and imaginative ideas to keep children engaged.
+- Before the advertisement, the characters should mention they are taking a fun break.
+- The advertisement should be presented by a new character, "Ad Narrator", who is friendly and energetic.
+- After the advertisement, the conversation should resume with enthusiasm.
+- Conclude the podcast with the characters providing cheerful closing remarks and thanking the listeners.
 
 Previous conversation:
 ${previousLines}
 
 Continue the conversation, ensuring coherence with the previous lines. The continuation should:
 
-- Include natural interactions with interruptions, overlaps, and varied speaker order.
-- Use fillers like "um", "ah", "you know", "haha", "hmm".
-- Ensure that speakers interrupt each other naturally and speak in a random order, not following any fixed sequence.
-- Vary response lengths: single words and longer replies (2-3 sentences).
-- Ensure each speaker's dialogue reflects their personality or instructions as described above.
+- Include natural interactions with playful interruptions and expressions.
+- Use fillers appropriate for kids like "wow", "cool", "awesome", "let's go".
+- Ensure that characters interact in a random order, not following any fixed sequence.
+- Vary response lengths: from short exclamations to longer explanations (1-3 sentences).
+- Ensure each character's dialogue reflects their personality or instructions as described above.
 - Incorporate the advertisement as described.
 - Avoid repeating previous content.
 - Be approximately ${linesPerChunk} lines long.
 
 Format:
 
-- Start each line with the speaker's name and dialogue.
+- Start each line with the character's name and dialogue.
 - Use "--" for interruptions.
 
 Provide the continuation now.
